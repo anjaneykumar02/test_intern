@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test 2</title>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+    </head>
+    <style>
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+    th:nth-child(even)
+    {
+        background-color: #f2f2f2
+    }
+
+    td:nth-child(even){
+        background-color: #f2f2f2
+    }
+th, td {
+  text-align: center;
+  border: solid 1px rgb(78, 74, 74);
+  padding: 15px;
+}
+
+th{
+   color:  rgb(56, 53, 53);
+}
+
+</style>
+    <body>
+
+
+
+        <h1>Equipment-wise Details</h1>
+
+        <table id="table">
+            <tr>
+                <th rowspan="2"> MACHINE NAME </th>
+                <th rowspan="2"> MACHINE ID</th>
+                <th colspan="3"> ENERGY CONSUMED </th>
+                <th rowspan="2"> Active Power \n (MW)</th>
+                <th rowspan="2"> Apparent Power \n (MVA)</th>
+                <th rowspan="2"> Relative Power \n (MVAr)</th>
+                <th rowspan="2"> CURRENT (Amps)</th>
+                <th rowspan="2"> VOLTAGE (Volts)</th>
+                <th rowspan="2"> POWER FACTOR (Volts)</th>
+                <th colspan="3"> IDLE TIME </th>
+            </tr>
+            <tr colspan="3">
+                <th> Today</th>
+                <th> MTD</th>
+                <th> YTD</th>
+                <th> Today</th>
+                <th> MTD</th>
+                <th> YTD</th>
+            </tr>
+
+
+
+
+
+        </table>
+        <script src="data.js"></script>
+
+        <SCript>
+
+
+
+
+
+
+
+$(document).ready(function () {
+
+const data=JSON.parse(json);
+    
+
+    for(var i=1;i<data.length;i++){
+        add(data[i]);
+    }
+
+
+  
+function add(data) {
+      var datarow = '';
+
+      
+      $.each(data, function (key, value) {
+
+        datarow += '<td>';
+            datarow += value;
+
+              datarow += '</td>';
+      });
+        
+      $('#table').append("<tr>"+datarow+"</tr>");
+  }
+});
+
+</SCript>
+    </body>
+</html>

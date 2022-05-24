@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test 1</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <form id="myForm">
+                <label class="label1"> <span>Select your source :</span><p
+                        class="google">Google Cloud Storage </p></label>
+                <label><span>Provide a name for pipeline :</span>
+
+                    <input
+                        type="text" placeholder="e.g., cust_shop_energy_gateway001"
+                        required minlength="5"
+                        id="input1">
+                </label>
+                <label><span>GCS project name :</span>
+                    <input
+                        type="text" placeholder="project-id" required
+                        minlength="5"
+                        id="input2">
+                </label>
+                <label><span>GCS bucket name :</span>
+                    <input
+                        type="text" placeholder="gs://your-bucket" required
+                        minlength="5"
+                        id="input3">
+                </label>
+                <label><span>Input Cloud Storage File(s) :</span>
+                    <input
+                        type="text" placeholder="GCS location of your files"
+                        required minlength="5" id="input4">
+                </label>
+                <label class="example"><span></span>
+
+                    <p style="padding: 0;">Example:
+                        gs://your-bucket/your-files/01.csv</p>
+                </label>
+
+                <label><span>GCS credentials :</span><input
+                        type="text" required minlength="5"
+                        id="input5"></label>
+                <label><span>Run Every :</span><input type="text"
+                        placeholder="(in minutes)" required minlength="5"
+                        id="input6"></label>
+
+                <p id="error" class="error hide"> fill all fields</p>
+
+                <div class="buttonPanel">
+                    <button type="submit">Create</button>
+                    <button>Cancel</button>
+                </div>
+
+            </form>
+        </div>
+
+        <script>
+
+var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+var input1=document.getElementById("input1");
+var input2=document.getElementById("input2");
+var input3=document.getElementById("input3");
+var input4=document.getElementById("input4");
+var input5=document.getElementById("input5");
+var input6=document.getElementById("input6");
+
+
+var error=document.getElementById("error");
+
+document.querySelector("#myForm").addEventListener("submit", function(e){
+
+    
+    
+
+    if (checkStartChar(input1.value)||checkStartChar(input2.value)||checkStartChar(input3.value)
+    ||checkStartChar(input4.value)||checkStartChar(input5.value)||checkStartChar(input6.value)){
+        e.preventDefault(); 
+        alert("Input can't start with _ - +");
+        error.innerHTML="Input can't start with _ - +";
+        error.style.visibility="visible";
+
+    }else{
+        
+        if(checkChar(input1.value)||checkChar(input2.value)||checkChar(input3.value)||
+        checkChar(input4.value)||checkChar(input5.value)||checkChar(input6.value)){
+            e.preventDefault(); 
+        alert("Input can't allowed special characters");
+        error.innerHTML="Input can't allowed special characters";
+        error.style.visibility="visible";
+    }else{
+        error.style.visibility="invisible";
+        alert("Data Submitted");
+    }
+
+
+
+    }
+
+    
+
+
+function checkStartChar(str) {
+  const specialChars = /^[-_+]/;
+  return specialChars.test(str);
+}
+
+function checkChar(str) {
+  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  return specialChars.test(str);
+}
+});
+
+
+
+
+
+
+</script>
+    </body>
+</html>

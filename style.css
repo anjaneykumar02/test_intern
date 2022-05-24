@@ -1,0 +1,99 @@
+body {
+  margin-top: 20px;
+  padding: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+.container {
+  position: relative;
+  width: 600px;
+  height: auto;
+  background: rgb(255, 255, 255);
+  border: solid 1px black;
+  display: block;
+}
+form {
+  display: grid;
+  text-align: center;
+}
+
+label {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: grid;
+  float: left;
+  grid-template-columns: 5fr 5fr;
+  height: 25px;
+  align-content: center;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.google {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form span {
+  margin-left: 8px;
+  margin-right: 8px;
+  border-right: 2px solid black;
+  height: auto;
+  text-align: end;
+  padding-right: 10px;
+}
+
+.example {
+  font-size: 12px;
+  color: rgb(117, 117, 115);
+  margin: 4px;
+}
+input {
+  padding-left: 5px;
+  color: black;
+  display: inline-flex;
+  min-width: 50%;
+  min-height: 25px;
+  background-color: rgb(243, 243, 243);
+  border: none;
+}
+
+.error {
+  margin-top: 20px;
+  font-size: 16px;
+  color: red;
+}
+
+.buttonPanel {
+  text-align: center;
+  padding: 10px;
+}
+button {
+  margin: 10px;
+  padding: 5px;
+  font-style: bold;
+  font-size: 16px;
+  background: #6fa8dd;
+  color: black;
+  border: none;
+}
+
+button:nth-child(1) {
+  width: 30%;
+}
+button:nth-child(2) {
+  width: 55%;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
